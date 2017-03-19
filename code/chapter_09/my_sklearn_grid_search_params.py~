@@ -1,0 +1,14 @@
+
+from keras.models import Sequential
+from keras.layers import Dense
+from keras.wrappers.scikit_learn import KerasClassifier
+from sklearn.model_selection import GridSearchCV
+import numpy as np
+
+
+# Create model function
+def create_model(optimizer='rmsprop',init='glorot_uniform'):
+    model = Sequential()
+    model.add(Dense(12, input_dim=8, init=init, activation='relu'))
+    model.add(Dense(8, init=init, activation='relu'))
+    model.add(Dense(1, init=init, activation='sigmoid'))
